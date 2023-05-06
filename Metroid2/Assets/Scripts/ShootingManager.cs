@@ -8,6 +8,7 @@ public class ShootingManager : MonoBehaviour
     public GameObject playerProjectile;
     //Bool to define shot cooldown
     public bool ableToShoot;
+    
 
 
     // Start is called before the first frame update
@@ -19,11 +20,17 @@ public class ShootingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (Input.GetKeyDown(KeyCode.RightArrow))
+        //{
+            //isShotRight = true;
+            //SpawnProjectile();
+            //isShotRight = false;
+        //}
         if (Input.GetKeyDown(KeyCode.Space))
         {
             
             SpawnProjectile();
-
+            
         }
     }
 
@@ -34,7 +41,7 @@ public class ShootingManager : MonoBehaviour
         if (ableToShoot)
         {
             //Spawns the player projectile
-            Instantiate(playerProjectile, transform.position, playerProjectile.transform.rotation);
+            Instantiate(playerProjectile, transform.position, transform.rotation);
             //Makes it so the player can't shoot again until cooldown is over
             ableToShoot = false;
             //Starts cooldown

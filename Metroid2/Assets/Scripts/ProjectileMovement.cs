@@ -7,6 +7,7 @@ public class ProjectileMovement : MonoBehaviour
     private float speed = 13.0f;
     public GameObject projectileModel;
     public GameObject player;
+    
 
     private void Start()
     {
@@ -15,8 +16,22 @@ public class ProjectileMovement : MonoBehaviour
 
     private void Update()
     {
-        //CHANGE SO THAT IT INSTANTIATES ACCORDING TO THE FRONT OF THE PLAYER
-        transform.position += Vector3.left * speed * Time.deltaTime;
+        
+        
+        
+            transform.position += transform.forward * speed * Time.deltaTime;
+        
+
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "BlueDoor")
+        {
+            other.gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator DestroyProjectile()

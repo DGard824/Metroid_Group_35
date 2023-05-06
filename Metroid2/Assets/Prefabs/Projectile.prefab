@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564042415709734753}
-  m_LocalRotation: {x: -0.5003904, y: -0.49955288, z: -0.50421023, w: 0.49581096}
+  m_LocalRotation: {x: -0.70436895, y: -0.00917408, z: -0.709716, w: 0.009135309}
   m_LocalPosition: {x: 1.76, y: 5.5, z: -0.02}
-  m_LocalScale: {x: 0.23212901, y: 0.47168764, z: 0.2172985}
+  m_LocalScale: {x: 0.23212901, y: 0.10292574, z: 0.5190231}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.529, y: -90.70001, z: 0.2669983}
+  m_LocalEulerAnglesHint: {x: -178.516, y: -90.43298, z: 0.0019989014}
 --- !u!33 &1323146101235528123
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -110,3 +110,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileModel: {fileID: 1564042415709734753}
+  player: {fileID: 0}
