@@ -7,6 +7,9 @@ TagManager:
   - PlayerProjectile
   - BlueDoor
   - RegularEnemy
+  - HeavyBulletPickup
+  - PlayerProjectileHeavy
+  - RedDoor
   layers:
   - Default
   - TransparentFX

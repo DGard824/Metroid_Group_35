@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileMovement : MonoBehaviour
+public class HeavyProjectileMovement : MonoBehaviour
 {
     private float speed = 13.0f;
     public GameObject projectileModel;
     public GameObject player;
-    
+
 
     private void Start()
     {
@@ -16,13 +16,13 @@ public class ProjectileMovement : MonoBehaviour
 
     private void Update()
     {
-        
-        
-        
-            transform.position += transform.forward * speed * Time.deltaTime;
-        
 
-        
+
+
+        transform.position += transform.forward * speed * Time.deltaTime;
+
+
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,7 +34,7 @@ public class ProjectileMovement : MonoBehaviour
         }
         if (other.transform.tag == "RedDoor")
         {
-            
+            other.gameObject.SetActive(false);
             Destroy(gameObject);
         }
     }

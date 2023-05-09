@@ -7,6 +7,7 @@ public class PlayerCollisions : MonoBehaviour
 
     public int health = 99;
     public bool isInvincible;
+    public UIManager uimanager;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,12 @@ public class PlayerCollisions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (health <= 0)
+        {
+            uimanager.health_text.text = "Health: 0";
+            //this.enabled = false; --> USE WHEN ATTACHED TO ACTUAL FINAL PLAYER, THIS IS JUST COLLISIONS SCRIPT
+            uimanager.gameOver_text.text = "Game Over";
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,7 +35,8 @@ public class PlayerCollisions : MonoBehaviour
             if (other.transform.tag == "RegularEnemy")
             {
                 //Reduce health by 15 and activate the damage blink
-                health = 15;
+                health -= 15;
+                updateHealth();
                 StartCoroutine(damageBlink());
 
             }
@@ -63,4 +70,11 @@ public class PlayerCollisions : MonoBehaviour
         //Resets isInvincible to false
         isInvincible = false;
     }
+    private void updateHealth()
+    {
+        uimanager.health_text.text = "Health:" + health;
+
+    }
+
+    
 }

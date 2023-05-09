@@ -6,8 +6,10 @@ public class ShootingManager : MonoBehaviour
 {
     //GameObject for the player projectile
     public GameObject playerProjectile;
+    public GameObject playerProjectileHeavy;
     //Bool to define shot cooldown
     public bool ableToShoot;
+    public bool heavyBulletsActivated;
     
 
 
@@ -20,17 +22,30 @@ public class ShootingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.RightArrow))
-        //{
-            //isShotRight = true;
-            //SpawnProjectile();
-            //isShotRight = false;
-        //}
+     
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (heavyBulletsActivated)
+            {
+                SpawnHeavyProjectile();
+            }
+            else
+            {
+                SpawnProjectile();
+
+            }
             
-            SpawnProjectile();
             
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "HeavyBulletPickup")
+        {
+            other.gameObject.SetActive(false);
+            heavyBulletsActivated = true;
+            StartCoroutine(HeavyBulletTimer());
         }
     }
 
@@ -49,10 +64,21 @@ public class ShootingManager : MonoBehaviour
             
         }
 
+       
+    }
+     
+    private void SpawnHeavyProjectile()
+    {
+        if (ableToShoot)
+        {
+            //Spawns the player projectile
+            Instantiate(playerProjectileHeavy, transform.position, transform.rotation);
+            //Makes it so the player can't shoot again until cooldown is over
+            ableToShoot = false;
+            //Starts cooldown
+            StartCoroutine(ProjectileCooldown());
+        }
         
-
-
-
     }
     //Once a projectile is shot, they player must wait 1 second before shooting again
     private IEnumerator ProjectileCooldown()
@@ -65,4 +91,11 @@ public class ShootingManager : MonoBehaviour
 
 
     }
+    private IEnumerator HeavyBulletTimer()
+    {
+        yield return new WaitForSeconds(9);
+        heavyBulletsActivated = false;
+    }
+
+    
 }
