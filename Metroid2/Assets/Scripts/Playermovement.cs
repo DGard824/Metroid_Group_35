@@ -10,10 +10,9 @@ public class Playermovement : MonoBehaviour
     public float speed;
     public float jumpForce;
     public int fallDepth;
-    public int lives;
-    public int count;
-    public Text livesText;
-    public Text countText;
+    public bool isRotated = false;
+    public bool isGrounded;
+    
 
 
 
@@ -23,7 +22,7 @@ public class Playermovement : MonoBehaviour
     {
         startPos = transform.position;
         rigid_body = GetComponent<Rigidbody>();
-        setCountText();
+        
     }
 
     // Update is called once per frame
@@ -32,9 +31,28 @@ public class Playermovement : MonoBehaviour
         Vector3 add_position = Vector3.zero;
 
 
+        if (Physics.Raycast(transform.position, Vector3.down, GetComponent<CapsuleCollider>().height / 2 + 0.1f))
+        {
+            isGrounded = true;
+
+        }
+        else
+        {
+            isGrounded = false;
+        }
+
+
+
         //moves left
         if (Input.GetKey("a"))
         {
+            if (!isRotated)
+            {
+                
+
+                transform.Rotate(0, 180, 0, Space.Self);
+                isRotated = true;
+            }
             add_position += Vector3.left * Time.deltaTime * speed;
 
         }
@@ -42,48 +60,50 @@ public class Playermovement : MonoBehaviour
         //moves right
         if (Input.GetKey("d"))
         {
+            if (isRotated)
+            {
+                isRotated = false;
+                transform.Rotate(0, 180, 0, Space.Self);
+            }
             add_position += Vector3.right * Time.deltaTime * speed;
+            
+            
         }
 
         //code for jumping
-        if (Input.GetKey("space"))
+        if (Input.GetKey("w"))
         {
-            rigid_body.AddForce(Vector3.up * jumpForce);
+            if (isGrounded)
+            {
+                rigid_body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            }
+           
         }
 
 
         GetComponent<Transform>().position += add_position;
 
-        if (transform.position.y < fallDepth)
-        {
-            Respawn();
-        }
+        //if (transform.position.y < fallDepth)
+        //{
+            //Respawn();
+        //}
     }
 
 
-    void setCountText()
-    {
-        countText.text = "Count:" + count.ToString();
-        livesText.text = "Lives:" + lives.ToString();
-        if (lives <= 0)
-        {
+   
 
-        }
-    }
+    //private void Respawn()
+    //{
+        //transform.position = startPos;
+        //lives--;
+        //setCountText();
 
+        //if (lives <= 0)
+        //{
+            //this.enabled = false;
+        //}
 
-    private void Respawn()
-    {
-        transform.position = startPos;
-        lives--;
-        setCountText();
-
-        if (lives <= 0)
-        {
-            this.enabled = false;
-        }
-
-    }
+    //}
 
 }
 

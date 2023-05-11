@@ -8,6 +8,10 @@ public class PlayerCollisions : MonoBehaviour
     public int health = 99;
     public bool isInvincible;
     public UIManager uimanager;
+    public GameObject visor;
+    public GameObject body;
+    public GameObject head;
+    public GameObject gun;
 
     // Start is called before the first frame update
     void Start()
@@ -55,12 +59,18 @@ public class PlayerCollisions : MonoBehaviour
             //If index is even, disable the players mesh renderer
             if (index % 2 == 0)
             {
-                GetComponent<MeshRenderer>().enabled = false;
+                visor.GetComponent<MeshRenderer>().enabled = false;
+                head.GetComponent<MeshRenderer>().enabled = false;
+                gun.GetComponent<MeshRenderer>().enabled = false;
+                body.GetComponent<MeshRenderer>().enabled = false;
             }
             //If index is odd, enable the player's mesh renderer
             else
             {
-                GetComponent<MeshRenderer>().enabled = true;
+                visor.GetComponent<MeshRenderer>().enabled = true;
+                head.GetComponent<MeshRenderer>().enabled = true;
+                gun.GetComponent<MeshRenderer>().enabled = true;
+                body.GetComponent<MeshRenderer>().enabled = true;
             }
             //Wait for specified amount of time, then continue and change state again
             yield return new WaitForSeconds(0.2f);
