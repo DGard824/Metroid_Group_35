@@ -11,6 +11,7 @@ TagManager:
   - PlayerProjectileHeavy
   - RedDoor
   - Enemy
+  - HardEnemy
   layers:
   - Default
   - TransparentFX
