@@ -104,13 +104,13 @@ public class Playermovement : MonoBehaviour
     private void Respawn()
     {
         transform.position = startPos;
-        lives--;
+        //lives--;
         //setCountText();
 
-        if (lives <= 0)
-        {
-            this.enabled = false;
-        }
+        //if (lives <= 0)
+        //{
+            //this.enabled = false;
+        //}
     }
 
         
