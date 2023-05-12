@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 
     public Text health_text;
     public Text gameOver_text;
+    public Text returnText;
 
 
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class UIManager : MonoBehaviour
     {
         health_text.text = "Health: 99";
         gameOver_text.text = "";
+        returnText.text = "";
     }
 
     
