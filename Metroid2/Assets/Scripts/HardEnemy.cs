@@ -6,7 +6,7 @@ public class HardEnemy : MonoBehaviour
 {
     public int health = 9;
     private Vector3 startPos;
-    private float speed = 5;
+    private float speed = 3;
     public GameObject Player;
     // Start is called before the first frame update
     void Start()
