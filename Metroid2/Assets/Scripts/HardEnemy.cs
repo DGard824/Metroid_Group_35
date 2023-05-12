@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HardEnemy : MonoBehaviour
 {
+    public int health = 9;
     private Vector3 startPos;
     private float speed = 10;
     public GameObject Player;
@@ -27,5 +28,19 @@ public class HardEnemy : MonoBehaviour
         transform.position = movePoint;
 
         transform.LookAt(Player.transform);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "PlayerProjectileHeavy")
+        {
+            //Reduce health by 15 and activate the damage blink
+            health -= 3;
+            if (health == 0)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+
     }
 }

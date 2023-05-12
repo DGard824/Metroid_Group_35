@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RegularEnemy : MonoBehaviour
 {
+    public int health = 3;
     public GameObject leftPoint;
     public GameObject rightPoint;
     private Vector3 leftPos;
@@ -24,6 +25,7 @@ public class RegularEnemy : MonoBehaviour
     {
         Move();
     }
+
 
     private void Move()
     {
@@ -51,6 +53,23 @@ public class RegularEnemy : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "PlayerProjectile")
+        {
+            //Reduce health by 15 and activate the damage blink
+            health -= 3;
+            if (health == 0)
+            {
+                gameObject.SetActive(false);
+            }
+            
+            
+        }
+
+    }
+
 }
 
 
