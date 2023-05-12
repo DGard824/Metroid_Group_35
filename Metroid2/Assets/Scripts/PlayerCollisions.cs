@@ -45,10 +45,18 @@ public class PlayerCollisions : MonoBehaviour
         if (isInvincible == false)
         {
             //If the player runs into a RegularEnemy...
-            if (other.transform.tag == "RegularEnemy")
+            if (other.transform.tag == "Enemy")
             {
                 //Reduce health by 15 and activate the damage blink
                 health -= 15;
+                updateHealth();
+                StartCoroutine(damageBlink());
+
+            }
+            if (other.transform.tag == "HardEnemy")
+            {
+                //Reduce health by 15 and activate the damage blink
+                health -= 65;
                 updateHealth();
                 StartCoroutine(damageBlink());
 
