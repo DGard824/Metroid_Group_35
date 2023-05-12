@@ -91,12 +91,13 @@ public class Playermovement : MonoBehaviour
         }
     }
 
+    // code for jetpack
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("JetPack"))
         {
             other.gameObject.SetActive(false);
-            jumpForce = 20;
+            jumpForce = 30;
             uimanager.jetpackText.text = "Jetpack aquired";
         }
 

@@ -22,5 +22,9 @@ public class EnemyCollisions : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        if (other.transform.tag == "PlayerProjectileHeavy")
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
