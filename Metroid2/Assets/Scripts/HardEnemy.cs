@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HardEnemy : MonoBehaviour
 {
-    public int health = 9;
+    public int health = 10;
     private Vector3 startPos;
-    private float speed = 1;
+    private float speed = 2;
     public GameObject Player;
     // Start is called before the first frame update
     void Start()
