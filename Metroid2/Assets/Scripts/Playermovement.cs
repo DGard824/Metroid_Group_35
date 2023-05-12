@@ -95,7 +95,7 @@ public class Playermovement : MonoBehaviour
         if (other.gameObject.CompareTag("JetPack"))
         {
             other.gameObject.SetActive(false);
-            jumpForce = 25;
+            jumpForce = 50;
         }
 
     }
