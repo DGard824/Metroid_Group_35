@@ -12,6 +12,7 @@ TagManager:
   - RedDoor
   - Enemy
   - HardEnemy
+  - JetPack
   layers:
   - Default
   - TransparentFX

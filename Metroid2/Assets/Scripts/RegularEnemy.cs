@@ -58,13 +58,7 @@ public class RegularEnemy : MonoBehaviour
     {
         if (other.transform.tag == "PlayerProjectile")
         {
-            //Reduce health by 15 and activate the damage blink
-            health -= 3;
-            if (health == 0)
-            {
                 gameObject.SetActive(false);
-            }
-            
             
         }
 

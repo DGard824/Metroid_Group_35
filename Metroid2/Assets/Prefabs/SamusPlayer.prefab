@@ -168,8 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  jumpForce: 5
+  jumpForce: 7
   fallDepth: -25
+  lives: 0
   isRotated: 0
   isGrounded: 0
 --- !u!1 &1473574777678460420

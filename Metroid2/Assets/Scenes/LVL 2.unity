@@ -313,6 +313,11 @@ Transform:
   m_Father: {fileID: 434258175}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &135950269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 352177051936068137, guid: f92b5be4faee3974d800afbe29bf5e4d, type: 3}
+  m_PrefabInstance: {fileID: 464389172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &219065069
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1128432654224574611, guid: f92b5be4faee3974d800afbe29bf5e4d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1128432654224574611, guid: f92b5be4faee3974d800afbe29bf5e4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1259,6 +1264,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6592874792726716771, guid: bd01ae2f020bbfa4a87debfaed4e009d, type: 3}
+      propertyPath: m_Size.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -6592874792726716771, guid: bd01ae2f020bbfa4a87debfaed4e009d, type: 3}
+      propertyPath: m_Size.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -6592874792726716771, guid: bd01ae2f020bbfa4a87debfaed4e009d, type: 3}
+      propertyPath: m_Size.z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -6592874792726716771, guid: bd01ae2f020bbfa4a87debfaed4e009d, type: 3}
+      propertyPath: m_Center.y
+      value: 0.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -702993608561978458, guid: bd01ae2f020bbfa4a87debfaed4e009d, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 135950269}
     - target: {fileID: 6160104505168373177, guid: bd01ae2f020bbfa4a87debfaed4e009d, type: 3}
       propertyPath: m_Name
       value: HardEnemy

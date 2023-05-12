@@ -6,7 +6,7 @@ public class HardEnemy : MonoBehaviour
 {
     public int health = 9;
     private Vector3 startPos;
-    private float speed = 10;
+    private float speed = 5;
     public GameObject Player;
     // Start is called before the first frame update
     void Start()
@@ -32,9 +32,9 @@ public class HardEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "PlayerProjectileHeavy")
+        if (other.transform.tag == "PlayerProjectile")
         {
-            //Reduce health by 15 and activate the damage blink
+            //Reduce health by 3 
             health -= 3;
             if (health == 0)
             {
@@ -42,5 +42,10 @@ public class HardEnemy : MonoBehaviour
             }
         }
 
+        if (other.transform.tag == "PlayerProjectileHeavy")
+        {
+            gameObject.SetActive(false);
+
+        }
     }
 }
