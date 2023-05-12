@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCollisions : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerCollisions : MonoBehaviour
     public GameObject body;
     public GameObject head;
     public GameObject gun;
+    private int newSceneIndex;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +25,17 @@ public class PlayerCollisions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey("r"))
+        {
+            SceneManager.LoadScene(0);
+        }
+
         if (health <= 0)
         {
             uimanager.health_text.text = "Health: 0";
             //this.enabled = false; --> USE WHEN ATTACHED TO ACTUAL FINAL PLAYER, THIS IS JUST COLLISIONS SCRIPT
             uimanager.gameOver_text.text = "Game Over";
+            uimanager.returnText.text = "Press R for main menu";
         }
     }
 
