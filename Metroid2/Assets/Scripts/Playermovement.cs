@@ -10,6 +10,7 @@ public class Playermovement : MonoBehaviour
     public float speed;
     public float jumpForce;
     public int fallDepth;
+    public int lives;
     public bool isRotated = false;
     public bool isGrounded;
     
@@ -83,27 +84,38 @@ public class Playermovement : MonoBehaviour
 
         GetComponent<Transform>().position += add_position;
 
-        //if (transform.position.y < fallDepth)
-        //{
-            //Respawn();
-        //}
+        if (transform.position.y < fallDepth)
+        {
+            Respawn();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("JetPack"))
+        {
+            other.gameObject.SetActive(false);
+            isGrounded = true;
+        }
+
     }
 
 
-   
-
-    //private void Respawn()
-    //{
-        //transform.position = startPos;
-        //lives--;
+    private void Respawn()
+    {
+        transform.position = startPos;
+        lives--;
         //setCountText();
 
-        //if (lives <= 0)
-        //{
-            //this.enabled = false;
-        //}
+        if (lives <= 0)
+        {
+            this.enabled = false;
+        }
+    }
 
-    //}
+        
+
+    
 
 }
 

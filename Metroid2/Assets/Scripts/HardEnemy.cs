@@ -26,6 +26,6 @@ public class HardEnemy : MonoBehaviour
         movePoint = new Vector3(movePoint.x, transform.position.y, movePoint.z);
         transform.position = movePoint;
 
-        //transform.LookAt(Player.transform);
+        transform.LookAt(Player.transform);
     }
 }
