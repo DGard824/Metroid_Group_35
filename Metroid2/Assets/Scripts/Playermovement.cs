@@ -13,6 +13,7 @@ public class Playermovement : MonoBehaviour
     public int lives;
     public bool isRotated = false;
     public bool isGrounded;
+    public UIManager uimanager;
     
 
 
@@ -95,7 +96,8 @@ public class Playermovement : MonoBehaviour
         if (other.gameObject.CompareTag("JetPack"))
         {
             other.gameObject.SetActive(false);
-            jumpForce = 50;
+            jumpForce = 20;
+            uimanager.jetpackText.text = "Jetpack aquired";
         }
 
     }

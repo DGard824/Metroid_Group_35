@@ -13,6 +13,7 @@ TagManager:
   - Enemy
   - HardEnemy
   - JetPack
+  - Portal
   layers:
   - Default
   - TransparentFX

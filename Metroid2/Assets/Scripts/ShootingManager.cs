@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*
+ * Author: [Dillon Gard, Aga Megia]
+ * Date: [5/12/23]
+ * [Manages the shooting mechanic for the player]
+ */
 
 public class ShootingManager : MonoBehaviour
 {
     //GameObject for the player projectile
     public GameObject playerProjectile;
+    //Defines the heavy player projectile
     public GameObject playerProjectileHeavy;
     //Bool to define shot cooldown
     public bool ableToShoot;
+    //Bool to determine when heavy bullet pickup is collided with
     public bool heavyBulletsActivated;
     
 
@@ -17,20 +24,25 @@ public class ShootingManager : MonoBehaviour
     void Start()
     {
         
+      
     }
 
     // Update is called once per frame
     void Update()
     {
      
+        //If space is pushed...
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //If heavy bullets are activated
             if (heavyBulletsActivated)
             {
+                //Spawn heavy projectile instead of regular one
                 SpawnHeavyProjectile();
             }
             else
             {
+                //Spawn regular projectile if bool isn't true
                 SpawnProjectile();
 
             }
@@ -41,10 +53,14 @@ public class ShootingManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //If player collides with the heavy bullet pickup...
         if (other.transform.tag == "HeavyBulletPickup")
         {
+            //Make pickup invisible
             other.gameObject.SetActive(false);
+            //Set bool to true
             heavyBulletsActivated = true;
+            //Start countdown till heavy bullets run out
             StartCoroutine(HeavyBulletTimer());
         }
     }
@@ -91,9 +107,10 @@ public class ShootingManager : MonoBehaviour
 
 
     }
+    //Timer for how long the heavy bullets stay activated
     private IEnumerator HeavyBulletTimer()
     {
-        yield return new WaitForSeconds(9);
+        yield return new WaitForSeconds(5);
         heavyBulletsActivated = false;
     }
 

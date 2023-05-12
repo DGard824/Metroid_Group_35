@@ -59,6 +59,7 @@ public class RegularEnemy : MonoBehaviour
         if (other.transform.tag == "PlayerProjectile")
         {
                 gameObject.SetActive(false);
+            other.gameObject.SetActive(false);
             
         }
 

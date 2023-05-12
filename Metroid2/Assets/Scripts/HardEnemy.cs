@@ -40,10 +40,12 @@ public class HardEnemy : MonoBehaviour
             {
                 gameObject.SetActive(false);
             }
+            other.gameObject.SetActive(false);
         }
 
         if (other.transform.tag == "PlayerProjectileHeavy")
         {
+            other.gameObject.SetActive(false);
             gameObject.SetActive(false);
 
         }
